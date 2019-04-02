@@ -1,0 +1,56 @@
+<html>
+<head>
+<script>
+//<p id="txtHint" style="border:1px solid red;"></p>
+// xmlhttp = new XMLHttpRequest();
+function showHint() {
+	var  xmlhttp = new XMLHttpRequest();
+	var str=document.getElementById('mytext').value;	
+	document.getElementById("spinner").style.visibility= "visible";
+	xmlhttp.onreadystatechange = function() {
+		//alert(xmlhttp.rxmlhttpeadyState);
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {			
+			document.getElementById("spinner").style.visibility= "hidden";
+			var m=document.getElementById("txtHint");
+			m.innerHTML=xmlhttp.responseText;
+		}
+	};
+ 	var url="server.php?operator="+str;
+	//alert(url);
+
+	xmlhttp.open("GET", url,true);
+	xmlhttp.send();
+}
+
+</script>
+</head>
+<br>
+<body>
+
+<p><h2><b>Start typing a Operator name in the input field below:</b></h2></p>
+<br>
+<br>
+Operator name : <input type="text" onkeyup="showHint()" id="mytext" > <img id="spinner" src="loading.gif" width="20px" height="20px" style="visibility:hidden">
+<br>
+<br>
+<br>
+<table id="txtHint" border="1px">
+       
+	   <tr>
+	       <th>Id</th>
+		   <th>Operator Name</th>
+		   <th>Offer</th>
+		   <th>Cost</th>
+		   
+	   </tr>
+
+</table>
+
+
+<br/>
+<input type="button" value="Show All Offers" onclick="showHint()">
+
+<a href="http://localhost/mobileRecharge/welcome.html" ><button > back </button></a>
+
+</body>
+</html>

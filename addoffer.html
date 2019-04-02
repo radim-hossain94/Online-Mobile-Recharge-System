@@ -1,0 +1,133 @@
+<html>
+<head>
+    <title></title>
+</head>
+<script type="text/javascript">
+
+    
+	  
+	function Validate(){
+	  
+	    var id = document.getElementById("id").value;
+	    var operator = document.getElementById("operator").value;
+	    var offer = document.getElementById("offer").value;
+	    var cost = document.getElementById("cost").value;
+	    var number = /^[0-9]+$/;
+		
+	    var letters = /^[A-Za-z]+$/; 
+	  
+	    var id_error = document.getElementById("id_error");
+	    var operator_error = document.getElementById("operator_error");
+	    var offer_error = document.getElementById("offer_error");
+	    var cost_error = document.getElementById("cost_error");
+	    id_error.innerHTML=" ";
+		operator_error.innerHTML=" ";
+		offer_error.innerHTML=" ";
+			   if(id ==""){
+			   //id.style.border="1px solid red";
+			   id_error.textContent="id is required";
+			   return false;
+			   }
+			   if(number.test(id)!=true){
+			   //id.style.border="1px solid red";
+			   id_error.textContent="id should be only numbers";
+			   return false;
+			   }
+			   
+			   if(operator ==""){
+			   operator_error.textContent="operator is required";
+			   return false;
+			   }
+			   
+			   if(letters.test(operator)!=true){
+			   operator_error.textContent="operator name should be valid";
+			   return false;
+			   }
+			   
+			   if(offer ==""){
+			   //offer.style.border="1px solid red"
+			   offer_error.textContent="offer is required";
+			   return false;
+			   }
+			   if(cost ==""){
+			  
+			   //cost.style.border="1px solid red"
+			   cost_error.textContent="cost is required";
+			   return false;
+			   }
+			   if(number.test(cost)!=true){
+			  
+			   //cost.style.border="1px solid red"
+			   cost_error.textContent="invalid input";
+			   return false;
+			   }
+	         return true;
+}
+	  
+	   
+	  
+</script >
+
+<body>
+
+
+<form  action="auth.php" method="POST" onsubmit="return Validate()" name="vform">
+	<br>
+    <h1 align = "middle" style="color: DodgerBlue"> Registration For Mobile Company </h1>
+    <br>
+	<br>
+	<marquee><h1 style="color : Green"> Registration For Online Mobile Recharge System </h1></marquee>
+	<br>
+	<br>
+
+	<fieldset style="border-color : DodgerBlue">
+	<legend align="middle"> <h3 style="color : YellowGreen"> ID </h3></legend>
+	<p align = "middle"><input placeholder="" type="text" name="id" id="id"/> 
+	<div align="middle" style="color:Red" id="id_error"></div>
+	
+	</p>
+	
+	</fieldset>
+	<br>
+	<fieldset style="border-color : Orange">
+    <legend align="middle"> <h3 align = "middle" style="color : Red"> Operator Name </h3> </legend>
+	<p align = "middle"> <input placeholder="" type="text" name="operator" id="operator"/>
+	<div align="middle" style="color:Red" id="operator_error"></div>
+	</p>
+	
+	</fieldset>
+	
+	</fieldset>
+	<br>
+	<fieldset style="border-color : Orange">
+    <legend align="middle"> <h3 align = "middle" style="color : Red"> Offer </h3> </legend>
+	<p align = "middle"> <input placeholder="" type="text" name="offer" id="offer"/>
+    <div align="middle" style="color:Red" id="offer_error"></div>	
+
+	</p>
+	
+	</fieldset>
+	
+	</fieldset>
+	<br>
+	<fieldset style="border-color : Green">
+    <legend align="middle"> <h3 align = "middle" style="color : Red"> Cost </h3> </legend>
+	<p align = "middle"> <input placeholder="" type="text" name="cost" id="cost"/>
+    <div align="middle" style="color:Red" id="cost_error"></div>	
+
+	</p>
+	
+	</fieldset>
+	
+	
+	
+     
+	<p align="middle"> <input type="submit" value="submit" onclick="Validate()"/> </p>
+	
+	
+	
+</form>
+
+<p align="middle"> <a href="http://localhost/mobileRecharge/welcome.html" ><button> back </button></a></p>
+</body>
+</html>
